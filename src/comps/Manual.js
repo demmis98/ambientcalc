@@ -1,6 +1,7 @@
 import { useState } from "react"
 
 const Manual = () => {
+    const [a_list, setA_list] = useState()
     const [x_1, setX_1] = useState()
     const [x_2, setX_2] = useState()
     const [x_3, setX_3] = useState()
@@ -16,7 +17,7 @@ const Manual = () => {
     let p_a = 0
 
     const showCalc = () => {
-        p_1 = 20
+        p_1 = calcP_1(a_list)
         p_2 = calcP_2(x_2)
         p_3 = calcP_3(x_3)
         p_4 = calcP_4(calcCalmness(x_4_1, x_4_2))
@@ -26,6 +27,12 @@ const Manual = () => {
     }
 
     showCalc()
+    
+    const inputList = numbers.map((a_list, i) => 
+    <div><input type={"number"}
+            placeholder={"what's observer " + (i + 1) + "'s punctuation for beauty?"}
+            onChange={(e) => setA_list(a_list[i] = e.target.value)}
+            value={a_list[i]}></input></div>)
 
     return(
         <>
@@ -35,6 +42,7 @@ const Manual = () => {
             placeholder={"how many observers?"}
             onChange={(e) => setX_1(e.target.value)}
             value={x_1}></input>
+        {inputList}
         <div>x_2</div>
         <div>P2 = {p_2}</div>
         <input type={"number"}
@@ -78,13 +86,10 @@ const calc = (p_1, p_2, p_3, p_4, p_5) => {
 
 const calcP_1 = (a_list) => {
     let p_1 = 0
-    let i = 0
-    for (i = 0; i < a_list.length; i++) {
+    for (leti = 0; i < a_list.length; i++) {
         p_1 += a_list[i]
     }
-    console.log(i)
-    //i++
-    p_1 = p_1 / i
+    p_1 = p_1 / a_list.length
     p_1 = p_1 / 5
     return p_1
 }
