@@ -2,7 +2,7 @@ P_1 Beauty
 X_1 = (1/n) (summatory i = 1, i <= n) (1/5) a_i
 average of score 0 to 100
 
-P_2 Amount of strangers
+P_2 Amount of strangers paying attention
 X_2 = 0 | P_2 = 20
 X_2 > 0 | P_2 = (-10000) (X_2)
 if there are strangers you substract 10000
@@ -10,4 +10,23 @@ if there are strangers you substract 10000
 
 P_3 Illumination
 = 1/5{104 - 2([X_3/20] + [20/X_3])}
-where X_3 is the candela
+where X_3 is the amount of light
+
+P4 Calmness
+= 30 - 1000/X_4
+//X_4 = 1/volume in db
+//= 30 -1000(db)
+if there is a lot of noise it tends to negative infinity
+//imma make up my own Calmness
+// db > 20 | X_4 - log(db) - 10(n_inconveniences)
+// db <= 20 | X_4 - 10(n_inconveniences)
+
+P5 Seeing each other in silence
+= (1/5) S
+0 < X_5 < 30 | S = (100/3) X_5
+30 <= X_5 <= 60 | S = 100
+60 < X_5 | S = 100 - 5(X_5 - 60)
+30s to 60s is the ideal
+
+P_A ambient points
+= P1 + P2 + P3 + P4 + P5
