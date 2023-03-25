@@ -1,7 +1,17 @@
 const Manual = () => {
     return(
         <>
-
+        <div>x_1</div>
+        <input type={"number"} placeholder={"how many observers?"}></input>
+        <div>x_2</div>
+        <input type={"number"} placeholder={"how many strangers are watching?"}></input>
+        <div>x_3</div>
+        <input type={"number"} placeholder={"how many lux are there"}></input>
+        <div>x_4</div>
+        <input type={"number"} placeholder={"how many decibels?"}></input>
+        <input type={"number"} placeholder={"how many inconviniences?"}></input>
+        <div>x_5</div>
+        <input type={"number"} placeholder={"how many seconds watching each other?"}></input>
         </>
     )
 }
@@ -66,7 +76,7 @@ const calcP_5 = (x_5) => {
     return p_5
 }
 
-const calcCalmness = (volume, problems) {
+const calcCalmness = (volume, problems) => {
     let calmness = 100
     if(volume > 20){
         calmness -= Math.log10(volume)
