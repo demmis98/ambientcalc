@@ -1,14 +1,11 @@
-import {HashRouter, Routes, Route} from "react-router-dom"
+import Manual from "./Manual"
 import Title from "./Title"
 
 const Main = () => {
     return(
         <>
-        <HashRouter>
-            <Routes>
-                <Route exact-path = '/' element = {<Title></Title>}></Route>
-            </Routes>
-        </HashRouter>
+        <Title></Title>
+        <Manual></Manual>
         </>
     )
 }
