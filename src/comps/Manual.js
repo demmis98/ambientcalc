@@ -95,7 +95,7 @@ const calcP_2 = (x_2) => {
         p_2 = 20
     }
     else if (x_2 > 0) {
-        p_2 = x_2 * 10000
+        p_2 = x_2 * -10000
     }
     return p_2
 }
