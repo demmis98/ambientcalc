@@ -28,11 +28,11 @@ const Manual = () => {
 
     showCalc()
     
-    const inputList = numbers.map((a_list, i) => 
+    const inputList = a_list.map((punctuation, i) => 
     <div><input type={"number"}
             placeholder={"what's observer " + (i + 1) + "'s punctuation for beauty?"}
             onChange={(e) => setA_list(a_list[i] = e.target.value)}
-            value={a_list[i]}></input></div>)
+            value={punctuation}></input></div>)
 
     return(
         <>
@@ -86,7 +86,7 @@ const calc = (p_1, p_2, p_3, p_4, p_5) => {
 
 const calcP_1 = (a_list) => {
     let p_1 = 0
-    for (leti = 0; i < a_list.length; i++) {
+    for (let i = 0; i < a_list.length; i++) {
         p_1 += a_list[i]
     }
     p_1 = p_1 / a_list.length
