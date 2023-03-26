@@ -2,12 +2,12 @@ import { useState } from "react"
 
 const Manual = () => {
     const [a_list, setA_list] = useState([])
-    const [x_1, setX_1] = useState()
-    const [x_2, setX_2] = useState()
-    const [x_3, setX_3] = useState()
-    const [x_4_1, setX_4_1] = useState()
-    const [x_4_2, setX_4_2] = useState()
-    const [x_5, setX_5] = useState()
+    const [x_1, setX_1] = useState("0")
+    const [x_2, setX_2] = useState("0")
+    const [x_3, setX_3] = useState("0")
+    const [x_4_1, setX_4_1] = useState("0")
+    const [x_4_2, setX_4_2] = useState("0")
+    const [x_5, setX_5] = useState("0")
 
     let p_1 = 0
     let p_2 = 0
@@ -27,12 +27,25 @@ const Manual = () => {
     }
 
     showCalc()
-    
-    const inputList = a_list.map((punctuation, i) => 
-    <div><input type={"number"}
-            placeholder={"what's observer " + (i + 1) + "'s punctuation for beauty?"}
-            onChange={(e) => setA_list(a_list[i] = e.target.value)}
-            value={punctuation}></input></div>)
+
+    let inputList = []
+    const updateList = () => {
+        inputList = a_list.map((punctuation, i) => 
+        <div>
+            <input type={"number"}
+                placeholder={"what's observer " + (i + 1) + "'s punctuation for beauty?"}
+                onChange={(e) => {
+                    let listTemp = a_list
+                        console.log(i)
+                    listTemp.length = x_1
+                    listTemp[i] = e.target.value
+                    setA_list(listTemp)
+                    setX_3(x_3)
+                }}
+                value={punctuation}></input>
+                </div>)
+    }
+    updateList()
 
     return(
         <>
@@ -40,7 +53,18 @@ const Manual = () => {
         <div>P1 = {p_1}</div>
         <input type={"number"}
             placeholder={"how many observers?"}
-            onChange={(e) => setX_1(e.target.value)}
+            onChange={(e) => {
+                setX_1(e.target.value)
+                let listTemp = a_list
+                if(parseInt(x_1) > 0){
+                    listTemp.length = parseInt(x_1)
+                    listTemp[parseInt(x_1) - 1] = 0
+                    setX_3(x_3)
+                }
+                console.log(listTemp)
+                console.log(x_1)
+                setA_list(listTemp)
+            }}
             value={x_1}></input>
         {inputList}
         <div>x_2</div>
