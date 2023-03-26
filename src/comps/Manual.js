@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 const Manual = () => {
-    const [a_list, setA_list] = useState()
+    const [a_list, setA_list] = useState([])
     const [x_1, setX_1] = useState()
     const [x_2, setX_2] = useState()
     const [x_3, setX_3] = useState()
@@ -124,7 +124,7 @@ const calcP_4 = (x_4) => {
 const calcP_5 = (x_5) => {
     let p_5 = 0
     if (0 < x_5 && x_5 < 30) {
-        p_5 = 100 * x_5 / 3
+        p_5 = 100 * x_5 / 30
     }
     else if (30 <= x_5 && x_5 <= 60) {
         p_5 = 100

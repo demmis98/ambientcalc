@@ -23,7 +23,7 @@ if there is a lot of noise it tends to negative infinity
 
 P5 Seeing each other in silence
 = (1/5) S
-0 < X_5 < 30 | S = (100/3) X_5
+0 < X_5 < 30 | S = (100/30) X_5
 30 <= X_5 <= 60 | S = 100
 60 < X_5 | S = 100 - 5(X_5 - 60)
 30s to 60s is the ideal
