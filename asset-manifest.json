@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/ambientcalc/static/css/main.073c9b0a.css",
-    "main.js": "/ambientcalc/static/js/main.523d247d.js",
+    "main.js": "/ambientcalc/static/js/main.a39f96c7.js",
     "static/js/787.b87fc385.chunk.js": "/ambientcalc/static/js/787.b87fc385.chunk.js",
     "index.html": "/ambientcalc/index.html",
     "main.073c9b0a.css.map": "/ambientcalc/static/css/main.073c9b0a.css.map",
-    "main.523d247d.js.map": "/ambientcalc/static/js/main.523d247d.js.map",
+    "main.a39f96c7.js.map": "/ambientcalc/static/js/main.a39f96c7.js.map",
     "787.b87fc385.chunk.js.map": "/ambientcalc/static/js/787.b87fc385.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.523d247d.js"
+    "static/js/main.a39f96c7.js"
   ]
 }
