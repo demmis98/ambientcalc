@@ -1,8 +1,7 @@
 import { useState } from "react"
 
 const Manual = () => {
-    const [a_list, setA_list] = useState([])
-    const [x_1, setX_1] = useState("0")
+    const [x_1, setX_1] = useState([])
     const [x_2, setX_2] = useState("0")
     const [x_3, setX_3] = useState("0")
     const [x_4_1, setX_4_1] = useState("0")
@@ -17,7 +16,7 @@ const Manual = () => {
     let p_a = 0
 
     const showCalc = () => {
-        p_1 = calcP_1(a_list)
+        p_1 = calcP_1(x_1)
         p_2 = calcP_2(x_2)
         p_3 = calcP_3(x_3)
         p_4 = calcP_4(calcCalmness(x_4_1, x_4_2))
@@ -30,16 +29,15 @@ const Manual = () => {
 
     let inputList = []
     const updateList = () => {
-        inputList = a_list.map((punctuation, i) => 
+        inputList = x_1.map((punctuation, i) => 
         <div>
             <input type={"number"}
                 placeholder={"what's observer " + (i + 1) + "'s punctuation for beauty?"}
                 onChange={(e) => {
-                    let listTemp = a_list
-                        console.log(i)
-                    listTemp.length = x_1
+                    let listTemp = x_1
+                    console.log(i)
                     listTemp[i] = e.target.value
-                    setA_list(listTemp)
+                    setX_1(listTemp)
                     updateReact()
                 }}
                 value={punctuation}></input>
@@ -58,13 +56,12 @@ const Manual = () => {
         <input type={"number"}
             placeholder={"how many observers?"}
             onChange={(e) => {
-                setX_1(e.target.value)
-                let listTemp = a_list
-                if(parseInt(x_1) > 0){
-                    listTemp.length = parseInt(x_1)
-                    listTemp[parseInt(x_1) - 1] = 0
+                let listTemp = x_1
+                if(parseInt(e.target.value) > 0){
+                    listTemp.length = parseInt(e.target.value)
+                    listTemp[parseInt(e.target.value) - 1] = 0
                 }
-                setA_list(listTemp)
+                setX_1(listTemp)
                 updateList()
             }}
             value={x_1}></input>
@@ -110,12 +107,12 @@ const calc = (p_1, p_2, p_3, p_4, p_5) => {
     return p_a
 }
 
-const calcP_1 = (a_list) => {
+const calcP_1 = (x_1) => {
     let p_1 = 0
-    for (let i = 0; i < a_list.length; i++) {
-        p_1 += a_list[i]
+    for (let i = 0; i < x_1.length; i++) {
+        p_1 += x_1[i]
     }
-    p_1 = p_1 / a_list.length
+    p_1 = p_1 / x_1.length
     p_1 = p_1 / 5
     return p_1
 }
