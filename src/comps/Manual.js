@@ -61,8 +61,7 @@ const Manual = () => {
                     listTemp[parseInt(x_1) - 1] = 0
                     setX_3(x_3)
                 }
-                console.log(listTemp)
-                console.log(x_1)
+                updateList()
                 setA_list(listTemp)
             }}
             value={x_1}></input>
