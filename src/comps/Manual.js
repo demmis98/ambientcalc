@@ -40,12 +40,16 @@ const Manual = () => {
                     listTemp.length = x_1
                     listTemp[i] = e.target.value
                     setA_list(listTemp)
-                    setX_3(x_3)
+                    updateReact()
                 }}
                 value={punctuation}></input>
                 </div>)
     }
     updateList()
+
+    const updateReact = () => {
+        setX_3(x_3)
+    }
 
     return(
         <>
@@ -59,10 +63,9 @@ const Manual = () => {
                 if(parseInt(x_1) > 0){
                     listTemp.length = parseInt(x_1)
                     listTemp[parseInt(x_1) - 1] = 0
-                    setX_3(x_3)
                 }
-                updateList()
                 setA_list(listTemp)
+                updateList()
             }}
             value={x_1}></input>
         {inputList}
