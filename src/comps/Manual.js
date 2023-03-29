@@ -2,6 +2,7 @@ import { useState } from "react"
 
 const Manual = () => {
     const [x_1, setX_1] = useState([])
+    const [x_1_n, setX_1_N] = useState("0")
     const [x_2, setX_2] = useState("0")
     const [x_3, setX_3] = useState("0")
     const [x_4_1, setX_4_1] = useState("0")
@@ -29,7 +30,15 @@ const Manual = () => {
 
     let inputList = []
     const updateList = () => {
-        inputList = x_1.map((punctuation, i) => 
+        let listTemp = x_1
+        listTemp.length = x_1_n
+        for(let i = 0; i < listTemp.length; i++){
+            if(listTemp[i] == null){
+                listTemp[i] = 0
+            }
+        }
+        setX_1(listTemp)
+        inputList = listTemp.map((punctuation, i) => 
         <div>
             <input type={"number"}
                 placeholder={"what's observer " + (i + 1) + "'s punctuation for beauty?"}
@@ -38,16 +47,12 @@ const Manual = () => {
                     console.log(i)
                     listTemp[i] = e.target.value
                     setX_1(listTemp)
-                    updateReact()
+                    console.log(listTemp)
                 }}
                 value={punctuation}></input>
                 </div>)
     }
     updateList()
-
-    const updateReact = () => {
-        setX_3(x_3)
-    }
 
     return(
         <>
@@ -56,13 +61,10 @@ const Manual = () => {
         <input type={"number"}
             placeholder={"how many observers?"}
             onChange={(e) => {
-                let listTemp = x_1
-                if(parseInt(e.target.value) > 0){
-                    listTemp.length = parseInt(e.target.value)
-                    listTemp[parseInt(e.target.value) - 1] = 0
+                if(parseInt(e.target.value) >= 0){
+                    setX_1_N(e.target.value)
+                    updateList()
                 }
-                setX_1(listTemp)
-                updateList()
             }}
             value={x_1}></input>
         {inputList}
