@@ -145,7 +145,7 @@ const calcP_3 = (x_3) => {
 const calcP_4 = (x_4) => {
     let p_4 = 0
     p_4 = 1000 / x_4
-    p_4 = 30 - p_4
+    p_4 = 21 - p_4
     return p_4
 }
 
@@ -167,7 +167,8 @@ const calcP_5 = (x_5) => {
 const calcCalmness = (volume, problems) => {
     let calmness = 100
     if(volume > 20){
-        calmness -= volume
+        calmness = 50000 / (volume * volume)
+        calmness -= 30
     }
     calmness -= 10 * problems
 
