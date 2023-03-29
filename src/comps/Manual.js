@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 const Manual = () => {
     const [x_1, setX_1] = useState([])
@@ -8,6 +8,8 @@ const Manual = () => {
     const [x_4_1, setX_4_1] = useState("0")
     const [x_4_2, setX_4_2] = useState("0")
     const [x_5, setX_5] = useState("0")
+
+    const [inputList, setInputList] = useState("")
 
     let p_1 = 0
     let p_2 = 0
@@ -28,17 +30,16 @@ const Manual = () => {
 
     showCalc()
 
-    let inputList = []
-    const updateList = () => {
+    const updateList = (value) => {
         let listTemp = x_1
-        listTemp.length = x_1_n
+        listTemp.length = value
         for(let i = 0; i < listTemp.length; i++){
             if(listTemp[i] == null){
                 listTemp[i] = 0
             }
         }
         setX_1(listTemp)
-        inputList = listTemp.map((punctuation, i) => 
+        setInputList(listTemp.map((punctuation, i) => 
         <div>
             <input type={"number"}
                 placeholder={"what's observer " + (i + 1) + "'s punctuation for beauty?"}
@@ -49,10 +50,12 @@ const Manual = () => {
                     setX_1(listTemp)
                     console.log(listTemp)
                 }}
-                value={punctuation}></input>
-                </div>)
+                value={x_1[i]}></input>
+        </div>))
     }
-    updateList()
+    useEffect(() => {
+        updateList(x_1_n)
+    })
 
     return(
         <>
@@ -63,10 +66,10 @@ const Manual = () => {
             onChange={(e) => {
                 if(parseInt(e.target.value) >= 0){
                     setX_1_N(e.target.value)
-                    updateList()
+                    updateList(e.target.value)
                 }
             }}
-            value={x_1}></input>
+            value={x_1_n}></input>
         {inputList}
         <div>x_2</div>
         <div>P2 = {p_2}</div>
@@ -112,7 +115,7 @@ const calc = (p_1, p_2, p_3, p_4, p_5) => {
 const calcP_1 = (x_1) => {
     let p_1 = 0
     for (let i = 0; i < x_1.length; i++) {
-        p_1 += x_1[i]
+        p_1 += parseInt(x_1[i])
     }
     p_1 = p_1 / x_1.length
     p_1 = p_1 / 5
