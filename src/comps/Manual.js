@@ -167,7 +167,7 @@ const calcP_5 = (x_5) => {
 const calcCalmness = (volume, problems) => {
     let calmness = 100
     if(volume > 20){
-        calmness -= Math.log10(volume)
+        calmness -= volume
     }
     calmness -= 10 * problems
 
